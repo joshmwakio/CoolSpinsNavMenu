@@ -1,0 +1,191 @@
+  :root {
+    --bgcolor: rgb(69, 137, 251);
+    --menux: 50px;
+    --menuy: 50px;
+  }
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    margin: 0;
+    background-color: var(--bgcolor);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    transition: all 1s ease;
+  }
+  
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: var(--bgcolor);
+    transition: all 4s ease;
+  }
+  .headercontent {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100% - 30px);
+    width: calc(100% - 60px);
+    margin: 15px 30px;
+  }
+  .item {
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+  }
+  .item:not(.activeitem):hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .menu {
+    position: absolute;
+    border-radius: 50%;
+    top: 11px;
+    left: 11px;
+    transition: all 0.5s ease;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-color: rgba(0, 0, 0, 0);
+  }
+  .menu > .material-icons {
+    z-index: 9;
+  }
+  .links {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+  .links a {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    padding-top: 65px;
+    transform-origin: top center;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+  .links a span {
+    font-size: 10px;
+  }
+  .active .links a span {
+    font-size: 50px;
+  }
+  .active .links a {
+    pointer-events: all !important;
+  }
+  .links a:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .links a:nth-child(1):hover,
+  .links a:nth-child(1).selected {
+    color: rgb(107, 194, 175);
+  }
+  .links a:nth-child(2) {
+    transform: rotate(90deg);
+  }
+  .links a:nth-child(2):hover,
+  .links a:nth-child(2).selected {
+    color: rgb(170, 28, 201);
+  }
+  .links a:nth-child(3) {
+    transform: rotate(135deg);
+  }
+  .links a:nth-child(3):hover,
+  .links a:nth-child(3).selected {
+    color: rgb(69, 18, 211);
+  }
+  .links a:nth-child(4) {
+    transform: rotate(180deg);
+  }
+  .links a:nth-child(4):hover,
+  .links a:nth-child(4).selected {
+    color: rgb(69, 137, 251);
+  }
+  .links a:nth-child(5) {
+    transform: rotate(225deg);
+  }
+  .links a:nth-child(5):hover,
+  .links a:nth-child(5).selected {
+    color: rgb(16, 250, 73);
+  }
+  .links a:nth-child(6) {
+    transform: rotate(270deg);
+  }
+  .links a:nth-child(6):hover,
+  .links a:nth-child(6).selected {
+    color: rgb(228, 193, 26);
+  }
+  .links a:nth-child(7) {
+    transform: rotate(310deg);
+  }
+  .links a:nth-child(7):hover,
+  .links a:nth-child(7).selected {
+    color: rgb(231, 60, 35);
+  }
+  .links a:nth-child(8) {
+    transform: rotate(0deg);
+  }
+  .links a:nth-child(8):hover,
+  .links a:nth-child(8).selected {
+    color: rgb(198, 92, 91);
+  }
+  .active {
+    text-shadow: -2px -2px 2px rgba(0, 0, 0, 0.24);
+    position: absolute;
+    border-width: 100px;
+    border-color: rgba(0, 0, 0, 1);
+    transform: translateX(var(--menux)) translateY(var(--menuy)) rotate(360deg);
+    background: var(--bgcolor);
+    box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.2),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.3), -2px -2px 2px rgba(0, 0, 0, 0.2),
+      2px 2px 2px rgba(255, 255, 255, 0.3), 0 0 90px 125px var(--bgcolor);
+  }
+  .active > i {
+    font-size: 3rem;
+    padding: 1rem;
+  }
+  .active .links {
+    animation: rotate 20s linear infinite;
+    font-size: 40px;
+    opacity: 1;
+  }
+  /* .active .links a span {
+    animation: frotate 13s linear infinite;
+  } */
+  @keyframes rotate {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  @keyframes frotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
